@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input {
+  --outlinedInputHeight: var(--headerHeight);
+  --outlinedInputFontSize: 1.125rem;
+  --outlinedInputBorderWidth: 0;
+  --outlinedInputPadding: calc((var(--outlinedInputHeight) - var(--outlinedInputFontSize)) / 2);
+  --outlinedInputColor: var(--colorCardPrimary);
+  --outlinedInputFocusBackground: var(--colorBrandHover);
+  --outlinedInputPlaceholderColor: var(--colorCardPrimary);
+  --outlinedInputBorderRadius: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.grid {
+  display: grid;
+  grid-template-areas: 'content1 content1 content1' 'content2 content2 content2' 'content3 content4 content5';
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 20rem 20rem 20rem;
+  grid-gap: 1rem;
+  padding: 1rem;
+  background-color: #e5e5e5;
+  overflow: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.content {
+  display: grid;
+  place-items: center;
+  font-family: monospace;
+  font-size: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.content1 {
+  grid-area: content1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content2 {
+  grid-area: content2;
 }
+
+.content3 {
+  grid-area: content3;
+}
+
+.content4 {
+  grid-area: content4;
+}
+
+.content5 {
+  grid-area: content5;
+}
+
+.sideMenuContent {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
