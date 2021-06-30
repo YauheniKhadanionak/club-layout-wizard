@@ -1,68 +1,22 @@
 .footer {
-    background: #262626;
-    border-top: 5px solid #c75540;
+    background: #131415;
+    height: 400px;
     color: white;
     padding: 50px 0;
 }
 
 
-.contacts {
-    padding: 0;
-    list-style: none;
-}
-
-.contacts li {
-    margin-bottom: 15px;
-}
-
-.last-post {
+.copyright {
+    height: 56px;
     display: flex;
-    position: relative;
-    border-bottom: 1px solid #3e3e3e;
-    padding: 20px 0;
-}
-
-.last-post h4 {
-    font-weight: 600;
-    margin-bottom: 0;
-    font-size: 16px;
-    padding-top: 10px;
-}
-
-.last-post h5 {
-    font-size: 13px;
-    font-weight: 400;
-    margin-bottom: 0;
-}
-
-.last-post img {
-    border-radius: 50%;
-    width: 75px;
-    margin-right: 15px;
-}
-
-.counter {
-    background-color: #f36347;
-    padding: 2px 6px;
-    line-height: 1;
-    font-weight: 700;
-    border-radius: 20px;
-    position: absolute;
-    left: 55px;
-    font-size: 13px;
-    z-index: 500;
-    color: #fff !important;
-    box-shadow: 0px 2px 5px 1px rgba(0,0,0,.2);
-}
-
-.footer-logo-section {
-    margin: 75px 0 0 0;
     justify-content: center;
-}
+    align-items: center;
 
-.footer-logo {
-    width: 100px;
-    position: relative;
-    top: -17px;
-    margin-left: 10px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 14px;
+    color: white;
+    background: black;
+    text-transform: uppercase;
 }

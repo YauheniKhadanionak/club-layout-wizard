@@ -1,0 +1,35 @@
+.insta {
+    padding: 110px 165px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.insta .title {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.insta h2 {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 41px;
+    margin-bottom: 64px;
+}
+
+.insta ul {
+    width: 1110px;
+}
+
+.insta .more {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+
+    color: #06A9F6;
+}
