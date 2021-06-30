@@ -1,0 +1,30 @@
+.sectionAbout {
+  background-image: url(./man.png);
+  background-size: cover;
+  padding: 4rem;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sectionAboutContent {
+  width: 50rem;
+}
+
+.sectionAboutTitle {
+  line-height: 1.25;
+  font-size: 72px;
+  font-weight: 900;
+}
+
+.sectionAboutDescription {
+  line-height: 1.25;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* .sectionAboutButton {
+  --colorBrandH: 199 !important;
+  --colorBrandS: 94% !important;
+  --colorBrandL: 50% !important;
+} */
