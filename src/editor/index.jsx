@@ -28,7 +28,6 @@ export const Editor = () => {
   };
 
   const addSection = (section, index) => {
-    console.log("addSection", section, index);
     setSections([
       ...sections.slice(0, index),
       section,
@@ -69,19 +68,43 @@ export const Editor = () => {
   const renderSection = (section) => {
     switch (section.type) {
       case "header":
-        return <div className="section">Header</div>;
+        return (
+          <div style={{ height: section.settings.height }} className="section">
+            Header
+          </div>
+        );
       case "about":
-        return <About content={section.content} />;
+        return <About content={section.content} settings={section.settings} />;
       case "plans":
-        return <div className="section">Plans</div>;
+        return (
+          <div style={{ height: section.settings.height }} className="section">
+            Plans
+          </div>
+        );
       case "promo":
-        return <div className="section">Promo</div>;
+        return (
+          <div style={{ height: section.settings.height }} className="section">
+            Promo
+          </div>
+        );
       case "location":
-        return <div className="section">Location</div>;
+        return (
+          <div style={{ height: section.settings.height }} className="section">
+            Location
+          </div>
+        );
       case "feedback":
-        return <div className="section">Feedback</div>;
+        return (
+          <div style={{ height: section.settings.height }} className="section">
+            Feedback
+          </div>
+        );
       case "inst":
-        return <div className="section">Inst</div>;
+        return (
+          <div style={{ height: section.settings.height }} className="section">
+            Inst
+          </div>
+        );
 
       case "footer":
         return <Footer />;

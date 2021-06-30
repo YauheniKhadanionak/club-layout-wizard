@@ -1,8 +1,8 @@
 import { Button, Text, Header } from "@abc/protonpack";
 import "./styles.css";
 
-export const About = ({ content, height = "50rem" }) => (
-  <section style={{ height }} className="sectionAbout">
+export const About = ({ content, settings }) => (
+  <section style={{ height: settings.height }} className="sectionAbout">
     <div className="sectionAboutContent">
       <Header className="sectionAboutTitle" color="cardPrimary">
         {content.title}
