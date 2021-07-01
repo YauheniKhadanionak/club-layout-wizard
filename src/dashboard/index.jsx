@@ -137,7 +137,7 @@ export class Dashboard extends Component {
                   abcId=""
                   mode="secondary"
                   size="small"
-                  className="preview"
+                  className="templatePreview"
                 >
                   <svg
                     width="16"
@@ -159,7 +159,7 @@ export class Dashboard extends Component {
                   </svg>
                 </Button>
                 <img src={item.image} alt="" />
-                <div className="footer">
+                <div className="templateFooter">
                   <h3>{item.name}</h3>
                   <Button
                     mode="transparent"
