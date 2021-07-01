@@ -1,6 +1,6 @@
 .editor {
   display: grid;
-  grid-template-areas: "1" "2" "3" "4" "5" "6" "7" "8" "9" "10";
+  grid-template-areas: '1' '2' '3' '4' '5' '6' '7' '8' '9' '10';
   position: relative;
 }
 
@@ -31,7 +31,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  content: "";
+  content: '';
 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px dashed lightgray;
@@ -69,4 +69,12 @@
   padding: 0 calc(4rem - var(--formActionsLayoutMargin));
   margin: 0 -4rem;
   background-color: #fafafa;
+}
+
+.sectionContainer [data-reach-menu-popover] {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  z-index: 10000;
 }

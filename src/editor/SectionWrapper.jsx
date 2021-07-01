@@ -1,15 +1,7 @@
-import "./styles.css";
-import {
-  Button,
-  ButtonGroup,
-  Form,
-  IconGear,
-  IconEdit,
-  IconPlus,
-  Menu,
-} from "@abc/protonpack";
+import './styles.css'
+import { Button, ButtonGroup, Form, IconGear, IconEdit, IconPlus, Menu } from '@abc/protonpack'
 
-import { SECTION_INITIAL_DATA } from "./constants";
+import { SECTION_INITIAL_DATA } from './constants'
 
 export const SectionWrapper = ({
   sectionsLength,
@@ -31,17 +23,12 @@ export const SectionWrapper = ({
             rounded
             size="medium"
             mode="secondary"
-            style={{ backgroundColor: "white" }}
+            style={{ backgroundColor: 'white' }}
           >
             <IconGear />
             Settings
           </Button>
-          <Button
-            abcId="edit"
-            rounded
-            size="medium"
-            onClick={() => openContentDrawer(index)}
-          >
+          <Button abcId="edit" rounded size="medium" onClick={() => openContentDrawer(index)}>
             <IconEdit />
             Content
           </Button>
@@ -51,19 +38,19 @@ export const SectionWrapper = ({
             abcId="sectionButtons"
             rounded
             buttons={[
-              { icon: "copy", key: "1", abcId: "button1", size: "medium" },
+              { icon: 'copy', key: '1', abcId: 'button1', size: 'medium' },
               {
-                icon: "trash",
-                key: "2",
-                abcId: "button2",
+                icon: 'trash',
+                key: '2',
+                abcId: 'button2',
                 onClick: () => removeSection(index),
-                size: "medium",
+                size: 'medium',
               },
               {
-                icon: "chevron-down-heavy",
-                key: "3",
-                abcId: "button3",
-                size: "medium",
+                icon: 'chevron-down-heavy',
+                key: '3',
+                abcId: 'button3',
+                size: 'medium',
               },
             ]}
           />
@@ -73,20 +60,20 @@ export const SectionWrapper = ({
             rounded
             buttons={[
               {
-                icon: "arrow-down",
-                key: "0",
-                abcId: "button0",
+                icon: 'arrow-down',
+                key: '0',
+                abcId: 'button0',
                 onClick: () => moveSectionDown(index),
                 disabled: index === sectionsLength - 1,
-                size: "medium",
+                size: 'medium',
               },
               {
-                icon: "arrow-up",
-                key: "1",
-                abcId: "button1",
+                icon: 'arrow-up',
+                key: '1',
+                abcId: 'button1',
                 onClick: () => moveSectionUp(index),
                 disabled: index === 0,
-                size: "medium",
+                size: 'medium',
               },
             ]}
           />
@@ -97,19 +84,15 @@ export const SectionWrapper = ({
         <Menu.Button className="addButton" abcId="add" rounded size="medium">
           <IconPlus />
         </Menu.Button>
-        <Menu.List>
-          <Menu.Item
-            onSelect={() => addSection(SECTION_INITIAL_DATA.header, index + 1)}
-          >
+        <Menu.List portal={false}>
+          <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.header, index + 1)}>
             Header
           </Menu.Item>
-          <Menu.Item
-            onSelect={() => addSection(SECTION_INITIAL_DATA.about, index + 1)}
-          >
+          <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.about, index + 1)}>
             About
           </Menu.Item>
         </Menu.List>
       </Menu>
     </div>
-  );
-};
+  )
+}
