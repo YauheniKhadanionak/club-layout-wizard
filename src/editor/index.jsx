@@ -6,6 +6,8 @@ import { SECTION_INITIAL_DATA } from './constants'
 
 import { Drawer } from '@abc/protonpack'
 import { Feedback } from './sections/feedback'
+import {Location} from "./sections/location";
+import Promo from "./sections/promo";
 
 export const Editor = () => {
   const [loading, setLoading] = useState(false)
@@ -83,17 +85,9 @@ export const Editor = () => {
           </div>
         )
       case 'promo':
-        return (
-          <div style={{ height: section.settings.height }} className="section">
-            Promo
-          </div>
-        )
+        return <Promo />
       case 'location':
-        return (
-          <div style={{ height: section.settings.height }} className="section">
-            Location
-          </div>
-        )
+        return <Location />
       case 'feedback':
         return <Feedback />
 

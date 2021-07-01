@@ -36,7 +36,7 @@ export class Feedback extends Component {
     render() {
         return (
             <div className="feedback">
-                <Header as="h2">What Our Clients Says About Us</Header>
+                <Header as="h2">What Our Clients Say About Us</Header>
 
                 <ElasticGrid abcId="" displayData={items} labelledBy="" minimalColumnWidth="540px"
                              renderItem={(item) => (<>
