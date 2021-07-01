@@ -12,6 +12,7 @@ export const SectionWrapper = ({
   moveSectionDown,
   openContentDrawer,
   addSection,
+  copySection,
 }) => {
   return (
     <div style={{ gridArea: index + 1 }} className="sectionContainer">
@@ -38,7 +39,13 @@ export const SectionWrapper = ({
             abcId="sectionButtons"
             rounded
             buttons={[
-              { icon: 'copy', key: '1', abcId: 'button1', size: 'medium' },
+              {
+                icon: 'copy',
+                key: '1',
+                abcId: 'button1',
+                size: 'medium',
+                onClick: () => copySection(index),
+              },
               {
                 icon: 'trash',
                 key: '2',
