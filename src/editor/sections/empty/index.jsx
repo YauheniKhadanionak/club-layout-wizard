@@ -1,15 +1,15 @@
-import { IconPlus, EmptyStateIcon, Menu } from "@abc/protonpack";
-import { SECTION_INITIAL_DATA } from "../../constants";
+import { IconPlus, EmptyStateIcon, Menu } from '@abc/protonpack'
+import { SECTION_INITIAL_DATA } from '../../constants'
 
 export const Empty = ({ addSection }) => {
   return (
-    <section style={{ height: "20rem", display: "grid", placeItems: "center" }}>
+    <section style={{ height: '20rem', display: 'grid', placeItems: 'center' }}>
       <div
         style={{
-          display: "grid",
-          gridAutoFlow: "column",
-          gridGap: "4rem",
-          alignItems: "center",
+          display: 'grid',
+          gridAutoFlow: 'column',
+          gridGap: '4rem',
+          alignItems: 'center',
         }}
       >
         <EmptyStateIcon />
@@ -18,16 +18,12 @@ export const Empty = ({ addSection }) => {
             <IconPlus />
             Add New Section
           </Menu.Button>
-          <Menu.List>
-            <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.header)}>
-              Header
-            </Menu.Item>
-            <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.about)}>
-              About
-            </Menu.Item>
+          <Menu.List position="matchWidth" className="menuList">
+            <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.header)}>Header</Menu.Item>
+            <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.about)}>About</Menu.Item>
           </Menu.List>
         </Menu>
       </div>
     </section>
-  );
-};
+  )
+}
