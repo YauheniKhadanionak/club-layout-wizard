@@ -1,13 +1,11 @@
 .sectionAbout {
-  background-image: url(./man.png);
-  background-size: cover;
   padding: 4rem;
   display: grid;
   align-items: center;
-  overflow: hidden;
 }
 
 .sectionAboutContent {
+  z-index: 1;
   width: 50rem;
 }
 

@@ -1,16 +1,17 @@
-import { useState } from "react";
-import { Button, Form } from "@abc/protonpack";
+import { useState } from 'react'
+import { Button, Form } from '@abc/protonpack'
+import { BackgroundPicker } from '../../components/BackgroundPicker'
 
 export const AboutContentForm = ({ initialValues, onSubmit, onCancel }) => {
-  const [state, setState] = useState(initialValues);
+  const [state, setState] = useState(initialValues)
 
-  const getHandler = (name) => (event) =>
-    setState({ ...state, [name]: event.target.value });
+  const getHandler = name => event => setState({ ...state, [name]: event.target.value })
 
-  const handleSubmit = (event) => {
-    onSubmit(state);
-    event.preventDefault();
-  };
+  const handleSubmit = event => {
+    console.log('handleSubmit', event)
+    onSubmit(state)
+    event.preventDefault()
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -20,14 +21,20 @@ export const AboutContentForm = ({ initialValues, onSubmit, onCancel }) => {
           label="Title"
           name="title"
           value={state.title}
-          onChange={getHandler("title")}
+          onChange={getHandler('title')}
         />
         <Form.Input
           outlined
           label="Description"
           name="description"
           value={state.description}
-          onChange={getHandler("description")}
+          onChange={getHandler('description')}
+        />
+        <BackgroundPicker
+          label="Background Image"
+          value={state.background}
+          name="background"
+          onChange={getHandler('background')}
         />
       </Form.Layout>
 
@@ -38,5 +45,5 @@ export const AboutContentForm = ({ initialValues, onSubmit, onCancel }) => {
         </Button>
       </Form.ActionsLayout>
     </form>
-  );
-};
+  )
+}

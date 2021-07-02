@@ -1,8 +1,10 @@
-import { Button, Text, Header } from "@abc/protonpack";
-import "./styles.css";
+import { Button, Text, Header } from '@abc/protonpack'
+import { SectionBackground } from '../../components/SectionBackground'
+import './styles.css'
 
 export const About = ({ content, settings }) => (
   <section style={{ height: settings.height }} className="sectionAbout">
+    <SectionBackground src={content.background} />
     <div className="sectionAboutContent">
       <Header className="sectionAboutTitle" color="cardPrimary">
         {content.title}
@@ -21,6 +23,6 @@ export const About = ({ content, settings }) => (
       </Button>
     </div>
   </section>
-);
+)
 
-export { AboutContentForm } from "./contentForm";
+export { AboutContentForm } from './contentForm'

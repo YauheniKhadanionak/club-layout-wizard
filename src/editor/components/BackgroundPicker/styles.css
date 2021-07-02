@@ -1,0 +1,42 @@
+.filePickerContainer {
+  display: grid;
+}
+
+.filePickerLabel {
+  color: var(--outlinedInputLabelColor);
+  font-size: var(--outlinedInputLabelFontSize);
+  font-weight: var(--outlinedInputLabelFontWeight);
+  line-height: 1;
+  padding-bottom: var(--outlinedInputLabelPaddingBottom);
+}
+
+.filePickerButtons {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
+
+.filePickerButtons > * {
+  margin: 4px;
+}
+
+.filePickerPreview {
+  position: relative;
+  height: 160px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.filePicker {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: #fafafa;
+  border: 3px dashed #dddddd;
+}
+
+input[type='file'] {
+  display: none;
+}
