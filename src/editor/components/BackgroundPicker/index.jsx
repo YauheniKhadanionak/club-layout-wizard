@@ -1,4 +1,4 @@
-import { Button, Form, IconEdit, IconTrash } from '@abc/protonpack'
+import { Button, IconEdit, IconTrash } from '@abc/protonpack'
 import { SectionBackground } from '../SectionBackground'
 import './styles.css'
 
@@ -28,7 +28,7 @@ export const BackgroundPicker = props => {
           </>
         ) : (
           <label for="filepicker" className="filePicker">
-            <Button size="medium" uppercase rounded>
+            <Button size="medium" uppercase rounded className="filePickerButton">
               <input
                 id="filepicker"
                 type="file"

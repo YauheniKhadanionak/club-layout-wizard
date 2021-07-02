@@ -37,6 +37,10 @@
   border: 3px dashed #dddddd;
 }
 
+.filePickerButton {
+  pointer-events: none;
+}
+
 input[type='file'] {
   display: none;
 }
