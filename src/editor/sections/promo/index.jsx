@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import './index.css'
-import bg from './bg.png'
+
+import {Confirmation} from '@abc/protonpack'
 
 class Promo extends Component {
+    state = {joined: false}
+
     render() {
         return (
             <div className="promo">
@@ -14,8 +17,13 @@ class Promo extends Component {
                 <div className="form">
                     <input type="text" placeholder="Name"/>
                     <input type="text" placeholder="Phone Number"/>
-                    <button>Request a Guest Pass</button>
+                    <button onClick={() => this.setState({joined: true})}>Request a
+                        Guest Pass</button>
                 </div>
+
+                <Confirmation abcId="" open={this.state.joined} onCancel={() => this.setState({joined: false})}>
+                    Thank You! We will contact you shortly…
+                </Confirmation>
             </div>
         );
     }

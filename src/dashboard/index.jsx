@@ -73,7 +73,7 @@ export const Dashboard = props => {
                 </clipPath>
               </defs>
             </svg>
-            <a className="url" href="/demo">
+            <a className="url" href="/editor">
               {siteData.domain}
             </a>
           </div>

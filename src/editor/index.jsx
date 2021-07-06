@@ -8,6 +8,7 @@ import { Drawer } from '@abc/protonpack'
 import { Feedback } from './sections/feedback'
 import {Location} from "./sections/location";
 import Promo from "./sections/promo";
+import {Join} from "./sections/join";
 
 export const Editor = () => {
   const [loading, setLoading] = useState(false)
@@ -79,11 +80,7 @@ export const Editor = () => {
       case 'about':
         return <About content={section.content} settings={section.settings} />
       case 'plans':
-        return (
-          <div style={{ height: section.settings.height }} className="section">
-            Plans
-          </div>
-        )
+        return <Join />
       case 'promo':
         return <Promo />
       case 'location':
