@@ -75,7 +75,7 @@ const AppLayout = props => {
 const navItems = [
   { path: '/', label: 'Dashboard', key: 'Dashboard' },
   { path: '/help', label: 'Help Center', key: 'Help Center' },
-  { path: '/editor/preview', label: 'Publish', key: 'Publish' },
+  { path: '/editor/preview', label: 'Publish', key: 'Publish', target: '_blank' },
 ]
 
 export default App
