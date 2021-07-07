@@ -11,11 +11,16 @@ export const SectionWrapper = ({
   moveSectionUp,
   moveSectionDown,
   openContentDrawer,
+  openSettingsDrawer,
   addSection,
   copySection,
+  height,
 }) => {
   return (
-    <div style={{ gridArea: index + 1 }} className="sectionContainer">
+    <div
+      style={{ gridArea: index + 1, height: height ? `${height}px` : 'auto' }}
+      className="sectionContainer"
+    >
       {children}
       <div className="topButtons">
         <Form.ActionsLayout>
@@ -25,6 +30,7 @@ export const SectionWrapper = ({
             size="medium"
             mode="secondary"
             style={{ backgroundColor: 'white' }}
+            onClick={() => openSettingsDrawer(index)}
           >
             <IconGear />
             Settings
@@ -92,12 +98,11 @@ export const SectionWrapper = ({
           <IconPlus />
         </Menu.Button>
         <Menu.List portal={false}>
-          <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.header, index + 1)}>
-            Header
-          </Menu.Item>
-          <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.about, index + 1)}>
-            About
-          </Menu.Item>
+          {Object.values(SECTION_INITIAL_DATA).map(section => (
+            <Menu.Item className="menuItem" key={section.type} onSelect={() => addSection(section, index + 1)}>
+              {section.type}
+            </Menu.Item>
+          ))}
         </Menu.List>
       </Menu>
     </div>

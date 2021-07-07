@@ -1,14 +1,14 @@
 import './styles.css'
 import { useEffect, useState } from 'react'
 import { SectionWrapper } from './SectionWrapper'
-import { Insta, Footer, About, AboutContentForm, Empty } from './sections'
+import { Insta, Footer, About, AboutContentForm, AboutSettingsForm, Empty } from './sections'
 import { SECTION_INITIAL_DATA } from './constants'
 
-import { Drawer } from '@abc/protonpack'
+import { Drawer, SkeletonShape } from '@abc/protonpack'
 import { Feedback } from './sections/feedback'
-import {Location} from "./sections/location";
-import Promo from "./sections/promo";
-import {Join} from "./sections/join";
+import { Location } from './sections/location'
+import Promo from './sections/promo'
+import { Join } from './sections/join'
 
 export const Editor = () => {
   const [loading, setLoading] = useState(false)
@@ -19,12 +19,23 @@ export const Editor = () => {
   }, [])
 
   const [isContentDrawerOpen, setContentDrawerOpen] = useState(false)
-  const [currentSectionIndex, setcurrentSectionIndex] = useState(undefined)
+  const [isSettingsDrawerOpen, setSettingsDrawerOpen] = useState(false)
+
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(undefined)
   const [sections, setSections] = useState(Object.values(SECTION_INITIAL_DATA))
 
+  const openSettingsDrawer = index => {
+    setCurrentSectionIndex(index)
+    setSettingsDrawerOpen(true)
+  }
+
   const openContentDrawer = index => {
-    setcurrentSectionIndex(index)
+    setCurrentSectionIndex(index)
     setContentDrawerOpen(true)
+  }
+
+  const closeSettingsDrawer = () => {
+    setSettingsDrawerOpen(false)
   }
 
   const closeContentDrawer = () => {
@@ -35,7 +46,7 @@ export const Editor = () => {
     setSections([...sections.slice(0, index), section, ...sections.slice(index + 1)])
   }
 
-  const copySection = (index) => {
+  const copySection = index => {
     setSections([...sections.slice(0, index + 1), sections[index], ...sections.slice(index + 1)])
   }
 
@@ -72,11 +83,7 @@ export const Editor = () => {
   const renderSection = section => {
     switch (section.type) {
       case 'header':
-        return (
-          <div style={{ height: section.settings.height }} className="section">
-            Header
-          </div>
-        )
+        return <div className="section">Header</div>
       case 'about':
         return <About content={section.content} settings={section.settings} />
       case 'plans':
@@ -96,6 +103,44 @@ export const Editor = () => {
 
       default:
         return section.type
+    }
+  }
+
+  const renderSettingsForm = section => {
+    switch (section.type) {
+      case 'about':
+        return (
+          <AboutSettingsForm
+            initialValues={section.settings}
+            onSubmit={settings => {
+              updateSection({ settings }, currentSectionIndex)
+              closeSettingsDrawer()
+            }}
+            onCancel={closeSettingsDrawer}
+          />
+        )
+      default:
+        return (
+          <div>
+            <br />
+            <SkeletonShape abcId="shape" width="100%" height="3rem" />
+            <br />
+            <br />
+            <SkeletonShape abcId="shape" width="100%" height="3rem" />
+            <br />
+            <br />
+            <SkeletonShape abcId="shape" width="100%" height="3rem" />
+            <br />
+            <br />
+            <SkeletonShape abcId="shape" width="100%" height="3rem" />
+            <br />
+            <br />
+            <SkeletonShape abcId="shape" width="100%" height="3rem" />
+            <br />
+            <br />
+            <SkeletonShape abcId="shape" width="100%" height="3rem" />
+          </div>
+        )
     }
   }
 
@@ -127,9 +172,11 @@ export const Editor = () => {
           removeSection={removeSection}
           moveSectionUp={moveSectionUp}
           moveSectionDown={moveSectionDown}
+          openSettingsDrawer={openSettingsDrawer}
           openContentDrawer={openContentDrawer}
           addSection={addSection}
           copySection={copySection}
+          height={section.settings.height}
         >
           {renderSection(section)}
         </SectionWrapper>
@@ -137,6 +184,15 @@ export const Editor = () => {
       {sections.length === 0 && (
         <Empty addSection={section => addSection(section, sections.length)} />
       )}
+      <Drawer
+        width="small"
+        showCloseButton
+        visible={isSettingsDrawerOpen}
+        onDismiss={closeSettingsDrawer}
+        title="Settings"
+      >
+        {isSettingsDrawerOpen && renderSettingsForm(sections[currentSectionIndex])}
+      </Drawer>
       <Drawer
         width="small"
         showCloseButton

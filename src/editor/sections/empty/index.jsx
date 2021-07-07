@@ -19,8 +19,11 @@ export const Empty = ({ addSection }) => {
             Add New Section
           </Menu.Button>
           <Menu.List position="matchWidth" className="menuList">
-            <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.header)}>Header</Menu.Item>
-            <Menu.Item onSelect={() => addSection(SECTION_INITIAL_DATA.about)}>About</Menu.Item>
+            {Object.values(SECTION_INITIAL_DATA).map(section => (
+              <Menu.Item key={section.type} onSelect={() => addSection(section)}>
+                {section.type}
+              </Menu.Item>
+            ))}
           </Menu.List>
         </Menu>
       </div>

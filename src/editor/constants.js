@@ -1,5 +1,5 @@
 export const SECTION_INITIAL_DATA = {
-  header: { type: 'header', content: {}, settings: { height: '10rem' } },
+  header: { type: 'header', content: {}, settings: { height: '160' } },
   about: {
     type: 'about',
     content: {
@@ -8,12 +8,12 @@ export const SECTION_INITIAL_DATA = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed finibus facilisis blandit. Integer quis nulla sit amet ante ullamcorper aliquet nec vitae lectus. Nam posuere.',
       background: 'image.png',
     },
-    settings: { height: '50rem' },
+    settings: { height: '800' },
   },
-  plans: { type: 'plans', content: {}, settings: { height: '10rem' } },
-  promo: { type: 'promo', content: {}, settings: { height: '10rem' } },
-  location: { type: 'location', content: {}, settings: { height: '10rem' } },
-  feedback: { type: 'feedback', content: {}, settings: { height: '10rem' } },
-  inst: { type: 'inst', content: {}, settings: { height: '10rem' } },
-  footer: { type: 'footer', content: {}, settings: { height: '10rem' } },
+  plans: { type: 'plans', content: {}, settings: {} },
+  promo: { type: 'promo', content: {}, settings: {} },
+  location: { type: 'location', content: {}, settings: {} },
+  feedback: { type: 'feedback', content: {}, settings: {} },
+  inst: { type: 'inst', content: {}, settings: {} },
+  footer: { type: 'footer', content: {}, settings: {} },
 }

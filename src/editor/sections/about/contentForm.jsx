@@ -8,7 +8,6 @@ export const AboutContentForm = ({ initialValues, onSubmit, onCancel }) => {
   const getHandler = name => event => setState({ ...state, [name]: event.target.value })
 
   const handleSubmit = event => {
-    console.log('handleSubmit', event)
     onSubmit(state)
     event.preventDefault()
   }
