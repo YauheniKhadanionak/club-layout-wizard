@@ -18,6 +18,7 @@ import second from './2.png'
 import third from './3.png'
 import fourth from './4.png'
 import './index.css'
+import { useHistory } from 'react-router-dom'
 
 import { GeneralSettingsForm } from './generalSettingsForm'
 
@@ -34,6 +35,7 @@ const templates = [
 ]
 
 export const Dashboard = props => {
+  const history = useHistory()
   const [newPageModal, setNewPageModal] = useState(false)
   const [settingsModal, setSettingsModal] = useState(false)
 
@@ -179,7 +181,7 @@ export const Dashboard = props => {
               <img src={item.image} alt="" />
               <div className="templateFooter">
                 <h3>{item.name}</h3>
-                <Button mode="transparent" onClick={() => props.history.push('/editor')}>
+                <Button mode="transparent" onClick={() => history.push('/editor')}>
                   SELECT
                 </Button>
               </div>

@@ -1,7 +1,7 @@
 import { Button, Form } from '@abc/protonpack'
 import './styles.css'
 
-import logo from './logo.png'
+import logo from './logo.svg'
 
 export const Header = ({ content, settings, sections }) => (
   <section className="sectionHeader">

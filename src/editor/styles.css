@@ -26,7 +26,7 @@
   right: 0.5rem;
 }
 
-.sectionContainer:hover {
+.editor:not(.isPreview) .sectionContainer:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -34,7 +34,7 @@
   border: 1px dashed transparent;
 }
 
-.sectionContainer:hover > *:first-child {
+.editor:not(.isPreview) .sectionContainer:hover > *:first-child {
   border: 1px dashed lightgray;
 }
 
@@ -47,8 +47,11 @@
 }
 
 .sectionContainer:not(:hover) .topLeftButtons,
+.isPreview .topLeftButtons,
 .sectionContainer:not(:hover) .topRightButtons,
-.sectionContainer:not(:hover) .addButton {
+.isPreview .topRightButtons,
+.sectionContainer:not(:hover) .addButton,
+.isPreview .addButton {
   display: none;
 }
 

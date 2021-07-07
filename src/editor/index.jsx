@@ -13,6 +13,7 @@ import {
   HeaderSettingsForm,
 } from './sections'
 import { SECTION_INITIAL_DATA } from './constants'
+import { useParams } from 'react-router-dom'
 
 import { Drawer } from '@abc/protonpack'
 import { Feedback } from './sections/feedback'
@@ -21,7 +22,8 @@ import Promo from './sections/promo'
 import { Join } from './sections/join'
 import { FormSkeleton } from './components/FormSkeleton'
 
-export const Editor = () => {
+export const Editor = props => {
+  const { mode } = useParams()
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -95,7 +97,9 @@ export const Editor = () => {
   const ContentForm = getContentForm(sections[currentSectionIndex])
 
   return (
-    <div className={`editor${loading ? ' loading' : ''}`}>
+    <div
+      className={`editor${loading ? ' loading' : ''}` + (mode === 'preview' ? ' isPreview' : '')}
+    >
       {sections.map((section, index) => (
         <SectionWrapper
           key={index}
