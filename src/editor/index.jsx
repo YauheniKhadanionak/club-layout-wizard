@@ -1,14 +1,25 @@
 import './styles.css'
 import { useEffect, useState } from 'react'
 import { SectionWrapper } from './SectionWrapper'
-import { Insta, Footer, About, AboutContentForm, AboutSettingsForm, Empty } from './sections'
+import {
+  Insta,
+  Footer,
+  About,
+  AboutContentForm,
+  AboutSettingsForm,
+  Empty,
+  Header,
+  HeaderContentForm,
+  HeaderSettingsForm,
+} from './sections'
 import { SECTION_INITIAL_DATA } from './constants'
 
-import { Drawer, SkeletonShape } from '@abc/protonpack'
+import { Drawer } from '@abc/protonpack'
 import { Feedback } from './sections/feedback'
 import { Location } from './sections/location'
 import Promo from './sections/promo'
 import { Join } from './sections/join'
+import { FormSkeleton } from './components/FormSkeleton'
 
 export const Editor = () => {
   const [loading, setLoading] = useState(false)
@@ -80,87 +91,8 @@ export const Editor = () => {
     ])
   }
 
-  const renderSection = section => {
-    switch (section.type) {
-      case 'header':
-        return <div className="section">Header</div>
-      case 'about':
-        return <About content={section.content} settings={section.settings} />
-      case 'plans':
-        return <Join />
-      case 'promo':
-        return <Promo />
-      case 'location':
-        return <Location />
-      case 'feedback':
-        return <Feedback />
-
-      case 'inst':
-        return <Insta />
-
-      case 'footer':
-        return <Footer />
-
-      default:
-        return section.type
-    }
-  }
-
-  const renderSettingsForm = section => {
-    switch (section.type) {
-      case 'about':
-        return (
-          <AboutSettingsForm
-            initialValues={section.settings}
-            onSubmit={settings => {
-              updateSection({ settings }, currentSectionIndex)
-              closeSettingsDrawer()
-            }}
-            onCancel={closeSettingsDrawer}
-          />
-        )
-      default:
-        return (
-          <div>
-            <br />
-            <SkeletonShape abcId="shape" width="100%" height="3rem" />
-            <br />
-            <br />
-            <SkeletonShape abcId="shape" width="100%" height="3rem" />
-            <br />
-            <br />
-            <SkeletonShape abcId="shape" width="100%" height="3rem" />
-            <br />
-            <br />
-            <SkeletonShape abcId="shape" width="100%" height="3rem" />
-            <br />
-            <br />
-            <SkeletonShape abcId="shape" width="100%" height="3rem" />
-            <br />
-            <br />
-            <SkeletonShape abcId="shape" width="100%" height="3rem" />
-          </div>
-        )
-    }
-  }
-
-  const renderContentForm = section => {
-    switch (section.type) {
-      case 'about':
-        return (
-          <AboutContentForm
-            initialValues={section.content}
-            onSubmit={content => {
-              updateSection({ content }, currentSectionIndex)
-              closeContentDrawer()
-            }}
-            onCancel={closeContentDrawer}
-          />
-        )
-      default:
-        return section.type
-    }
-  }
+  const SettingsForm = getSettingsForm(sections[currentSectionIndex])
+  const ContentForm = getContentForm(sections[currentSectionIndex])
 
   return (
     <div className={`editor${loading ? ' loading' : ''}`}>
@@ -178,7 +110,7 @@ export const Editor = () => {
           copySection={copySection}
           height={section.settings.height}
         >
-          {renderSection(section)}
+          {renderSection(sections, index)}
         </SectionWrapper>
       ))}
       {sections.length === 0 && (
@@ -191,7 +123,16 @@ export const Editor = () => {
         onDismiss={closeSettingsDrawer}
         title="Settings"
       >
-        {isSettingsDrawerOpen && renderSettingsForm(sections[currentSectionIndex])}
+        {isSettingsDrawerOpen && (
+          <SettingsForm
+            initialValues={sections[currentSectionIndex].settings}
+            onSubmit={settings => {
+              updateSection({ settings }, currentSectionIndex)
+              closeSettingsDrawer()
+            }}
+            onCancel={closeSettingsDrawer}
+          />
+        )}
       </Drawer>
       <Drawer
         width="small"
@@ -200,8 +141,71 @@ export const Editor = () => {
         onDismiss={closeContentDrawer}
         title="Content"
       >
-        {isContentDrawerOpen && renderContentForm(sections[currentSectionIndex])}
+        {isContentDrawerOpen && (
+          <ContentForm
+            initialValues={sections[currentSectionIndex].content}
+            onSubmit={content => {
+              updateSection({ content }, currentSectionIndex)
+              closeContentDrawer()
+            }}
+            onCancel={closeContentDrawer}
+          />
+        )}
       </Drawer>
     </div>
   )
+}
+
+const getSettingsForm = section => {
+  switch (section?.type) {
+    case 'about':
+      return AboutSettingsForm
+    case 'header':
+      return HeaderSettingsForm
+    default:
+      return FormSkeleton
+  }
+}
+
+const getContentForm = section => {
+  switch (section?.type) {
+    case 'about':
+      return AboutContentForm
+    case 'header':
+      return HeaderContentForm
+    default:
+      return FormSkeleton
+  }
+}
+
+const renderSection = (sections, index) => {
+  switch (sections[index]?.type) {
+    case 'header':
+      return (
+        <Header
+          content={sections[index].content}
+          settings={sections[index].settings}
+          sections={sections}
+        />
+      )
+    case 'about':
+      return <About content={sections[index].content} settings={sections[index].settings} />
+    case 'plans':
+      return <Join />
+    case 'promo':
+      return <Promo />
+    case 'location':
+      return <Location />
+    case 'feedback':
+      return <Feedback />
+
+    case 'instaLife':
+      return <Insta />
+
+    case 'footer':
+      return <Footer />
+
+    default:
+      return false
+  }
 }

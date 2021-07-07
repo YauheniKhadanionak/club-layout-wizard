@@ -14,15 +14,16 @@
   display: grid;
 }
 
-.sectionContainer .topButtons {
+.sectionContainer .topLeftButtons {
   position: absolute;
-  top: 0rem;
-  left: 0rem;
-  right: 0rem;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  z-index: 1;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.sectionContainer .topRightButtons {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .sectionContainer:hover {
@@ -45,7 +46,8 @@
   z-index: 1;
 }
 
-.sectionContainer:not(:hover) .topButtons,
+.sectionContainer:not(:hover) .topLeftButtons,
+.sectionContainer:not(:hover) .topRightButtons,
 .sectionContainer:not(:hover) .addButton {
   display: none;
 }

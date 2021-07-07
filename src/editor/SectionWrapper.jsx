@@ -22,7 +22,7 @@ export const SectionWrapper = ({
       className="sectionContainer"
     >
       {children}
-      <div className="topButtons">
+      <div className="topLeftButtons">
         <Form.ActionsLayout>
           <Button
             abcId="settings"
@@ -40,6 +40,8 @@ export const SectionWrapper = ({
             Content
           </Button>
         </Form.ActionsLayout>
+      </div>
+      <div className="topRightButtons">
         <Form.ActionsLayout>
           <ButtonGroup
             abcId="sectionButtons"
@@ -99,7 +101,11 @@ export const SectionWrapper = ({
         </Menu.Button>
         <Menu.List portal={false}>
           {Object.values(SECTION_INITIAL_DATA).map(section => (
-            <Menu.Item className="menuItem" key={section.type} onSelect={() => addSection(section, index + 1)}>
+            <Menu.Item
+              className="menuItem"
+              key={section.type}
+              onSelect={() => addSection(section, index + 1)}
+            >
               {section.type}
             </Menu.Item>
           ))}

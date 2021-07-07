@@ -1,0 +1,40 @@
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4rem;
+  background-color: #1a1b1b;
+  overflow: hidden;
+}
+
+.sectionHeaderButton {
+  display: flex;
+  flex-direction: column;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sectionHeaderLogo {
+  margin: 0.5rem;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+.sectionHeaderButton::after {
+  content: attr(data-text);
+  content: attr(data-text) / '';
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  font-weight: 800;
+
+  @media speech {
+    display: none;
+  }
+}
+
+.sectionHeaderButton:hover {
+  font-weight: 800;
+}
