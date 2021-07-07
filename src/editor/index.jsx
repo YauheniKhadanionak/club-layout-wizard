@@ -109,6 +109,7 @@ export const Editor = () => {
           addSection={addSection}
           copySection={copySection}
           height={section.settings.height}
+          id={section.type + index}
         >
           {renderSection(sections, index)}
         </SectionWrapper>

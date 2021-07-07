@@ -8,14 +8,18 @@ export const Header = ({ content, settings, sections }) => (
     <img className="sectionHeaderLogo" src={logo} alt="logo" />
     <Form.ActionsLayout>
       {sections.map(
-        ({ type }) =>
-          type !== 'header' && (
+        ({ type }, index) =>
+          type !== 'header' &&
+          type !== 'footer' && (
             <Button
               mode="transparent"
               color="white"
               className="sectionHeaderButton"
               key={type}
               data-text={type}
+              onClick={() =>
+                document.querySelector(`#${type}${index}`).scrollIntoView({ behavior: 'smooth' })
+              }
             >
               {type}
             </Button>

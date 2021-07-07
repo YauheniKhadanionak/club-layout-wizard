@@ -15,9 +15,11 @@ export const SectionWrapper = ({
   addSection,
   copySection,
   height,
+  id,
 }) => {
   return (
     <div
+      id={id}
       style={{ gridArea: index + 1, height: height ? `${height}px` : 'auto' }}
       className="sectionContainer"
     >
