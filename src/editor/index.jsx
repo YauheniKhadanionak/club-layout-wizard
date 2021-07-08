@@ -37,6 +37,8 @@ export const Editor = props => {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(undefined)
   const [sections, setSections] = useState(Object.values(SECTION_INITIAL_DATA))
 
+  console.log('sections', sections)
+
   const openSettingsDrawer = index => {
     setCurrentSectionIndex(index)
     setSettingsDrawerOpen(true)
@@ -56,7 +58,7 @@ export const Editor = props => {
   }
 
   const addSection = (section, index) => {
-    setSections([...sections.slice(0, index), section, ...sections.slice(index + 1)])
+    setSections([...sections.slice(0, index), section, ...sections.slice(index)])
   }
 
   const copySection = index => {
@@ -102,7 +104,7 @@ export const Editor = props => {
     >
       {sections.map((section, index) => (
         <SectionWrapper
-          key={index}
+          key={section.type + index}
           index={index}
           sectionsLength={sections.length}
           removeSection={removeSection}
