@@ -20,3 +20,10 @@
   font-size: 32px;
   font-weight: 600;
 }
+
+.sectionAboutButton {
+  --buttonBaseColor: #06A9F6;
+  --buttonBaseHoverColor: #06A9F6;
+
+  --buttonPaddingHorizontal: 4rem;
+}

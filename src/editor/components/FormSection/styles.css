@@ -1,0 +1,12 @@
+.formSection {
+  display: grid;
+  grid-gap: 24px;
+  margin-bottom: 4rem;
+}
+
+.formSection .title {
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #5f6368;
+}
